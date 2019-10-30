@@ -15,7 +15,10 @@ if [ -z "$USERNAME" ]; then
   USERNAME="AWS"
 fi
 
+REGISTRY_URI=$(echo ${REGISTRY#*//})
+
 echo "::set-output name=username::${USERNAME}"
 echo "::add-mask::${PASSWORD}"
 echo "::set-output name=password::${PASSWORD}"
 echo "::set-output name=registry::${REGISTRY}"
+echo "::set-output name=registry_uri::${REGISTRY_URI}"
